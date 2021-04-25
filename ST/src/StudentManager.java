@@ -2,13 +2,11 @@ import java.util.*;
 
 public class StudentManager {
 	
-	public static void main(String[] args) {
-		java.util.Date utilDate=new java.util.Date();
-		 
-		java.sql.Date sqlDate=new java.sql.Date(utilDate.getTime());
-	}
+    java.util.Date utilDate = new java.util.Date();
+    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 
-	static String msg = "\t学号\t姓名\t出生日期\t性别\t";
+	static String msg = "\t\t学号\t\t姓名\t\t出生日期\t\t性别\t\t";
+
 	public static int index(Student[] arr){
         for(int i = 0;i < arr.length;i++){
             if(arr[i] == null){
@@ -26,17 +24,20 @@ public class StudentManager {
 		System.out.println("4 修改");
 		System.out.println("5 输出");
 		System.out.println("6 退出");
-	}
+	}	
 	
-	public void Insert(String name,String birDate,Student[] arr){
+	public void Insert(int ID,String name,String birDate,boolean gender,Student[] arr){
 		int index = index(arr);
 		if(index != 20){
 		    Student stu = new Student();
-		    //stu.setID(index);
+		    stu.setID(ID);
 		    stu.setname(name);
 		    stu.setbirDate(birDate);
-		    //stu.setgender(gender);
+		    stu.setgender(gender);
 		    arr[index] = stu;
+		    System.out.println("添加学生成功");
+		    System.out.println(msg);
+		    System.out.println(arr[index]);
 		}
 		for(int i = 0;i < arr.length-1;i++){
 			for(int j = i + 1;j < arr.length;j++){
@@ -105,22 +106,22 @@ public class StudentManager {
 		System.exit(0);
 	}
 	
-    public void Applet(String[] args){
+    public void Applet(){
     	Scanner s = new Scanner(System.in);
     	Student[] stuArr = new Student[20];
     	StudentManager manager = new StudentManager();
     	manager.menu();
     	int num = s.nextInt();
     	if(num == 1){
-    		//System.out.println("请输入学生ID：");
-    		//String ID = s.next();
+    		System.out.println("请输入学生ID：");
+    		int ID = s.nextInt();
     		System.out.println("请输入学生name：");
     		String name = s.next();
     		System.out.println("请输入学生birDate：");
     		String birDate = s.next();
-    		//System.out.println("请输入学生gender：");
-    		//String gender = s.next();
-    		manager.Insert(name,birDate,stuArr);
+    		System.out.println("请输入学生gender：");
+    		boolean gender = s.nextBoolean();
+    		manager.Insert(ID,name,birDate,gender,stuArr);
     	}
         if(num == 2){
     		System.out.println("请输入学生name：");

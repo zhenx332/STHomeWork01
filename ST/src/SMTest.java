@@ -8,7 +8,7 @@ public class SMTest {
 		// TODO Auto-generated method stub
         StudentManager manager = new StudentManager();
         while(true){
-        	manager.Applet(args);
+        	manager.Applet();
         }
 	}
 

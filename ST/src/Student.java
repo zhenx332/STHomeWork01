@@ -6,13 +6,6 @@ public class Student {
 	private String birDate;
 	private boolean gender;
 	
-	
-	public void Point(int ID,String name,String birDate,boolean gender){
-		this.ID = ID;
-		this.name = name;
-		this.birDate = birDate;
-		this.gender = gender;
-	}
 	public int getID(){
 		return ID;
 	}
@@ -40,5 +33,8 @@ public class Student {
 		this.gender = gender;
 	}
 
-
+    public String toString(){
+    	String str = "\t\t" + this.ID + "\t\t" + this.name + "\t\t" + this.birDate + "\t\t" + this.gender + "\t\t";
+    	return str;
+    }
 }
